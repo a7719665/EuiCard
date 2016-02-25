@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="CardMainUISkin" width="1080" height="1700" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*">
+	<e:Image height="1700" width="1080" x="0" y="0" source="view_png"/>
+	<e:Label text="19" x="757" y="508" size="82" width="141" height="80" italic="true"/>
+	<e:Panel y="1325" width="1078" height="179">
+		<e:Image source="gold_100_png" x="20" y="20"/>
+		<e:Image source="gold_1k_png" x="170" y="20"/>
+		<e:Image source="gold_10k_png" x="342" y="14"/>
+		<e:Image source="gold_100k_png" x="488" y="20"/>
+		<e:Image source="gold_1m_png" x="622" y="27"/>
+		<e:Image source="gold_5m_png" x="776" y="20"/>
+		<e:Image source="gold_10m_png" x="916" y="20"/>
+	</e:Panel>
+	<e:Image source="user_info_png" x="64" y="1488"/>
+	<e:Image source="user_head_back_png" x="208" y="1524"/>
+	<e:Image source="head_png" x="214" y="1531" width="144" height="144"/>
+	<e:Image source="number_back_png" x="428" y="1544"/>
+	<e:Image source="sex_f_png" x="432" y="1540"/>
+	<e:Image source="sex_m_png" x="396" y="1540"/>
+	<e:Image source="number_back_png" x="436" y="1616"/>
+	<e:Image source="icon_gold_png" x="388" y="1616"/>
+	<e:Panel x="421" y="327" width="205" height="289">
+		<e:Image source="base_back_png" x="0" y="0"/>
+		<e:Image source="def_base_png" x="12" y="54"/>
+		<e:Label text="1999万" x="13" y="243" size="36" width="175" textAlign="center" bold="true"/>
+	</e:Panel>
+	<e:Image source="clock_png" x="679" y="506"/>
+	<e:Image source="get_base_png" x="146" y="518"/>
+	<e:Image source="get_gold_btn_png" x="852" y="1624"/>
+	<e:Image source="step_3_png" x="409" y="636"/>
+	<e:Image source="step_4_png" x="412" y="612"/>
+	<e:Image source="MoneyPic_png" x="161" y="255" width="142" height="92"/>
+	<e:Label text="活动" x="149" y="346" borderColor="0xffffff" width="145" height="60" textAlign="center" size="61" bold="true" textColor="0x5C0C0C" fontFamily="楷体"/>
+	
+
+</e:Skin>

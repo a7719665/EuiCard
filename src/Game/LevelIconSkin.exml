@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<e:Skin class="LevelIconSkin" states="up,down,disabled" width="77" height="77"
+        xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+
+	<e:Image source="gs_select_dis_png" x="0" y="0" includeIn="disabled"/>
+	<e:Image source="gs_select_1_png" x="2" y="2" includeIn="up,down"/>
+	<e:Label id="lvTxt" text="100" x="5" y="18" size="22" bold="true" verticalAlign="middle" height="41" width="68" textAlign.up="center" textAlign="center"/>
+</e:Skin>
