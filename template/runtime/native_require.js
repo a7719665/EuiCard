@@ -8,12 +8,14 @@ var game_file_list = [
 	"libs/modules/res/res.js",
 	"bin-debug/AssetAdapter.js",
 	"bin-debug/Game/CardMainUI.js",
+	"bin-debug/Game/DragObect.js",
 	"bin-debug/Game/LevelIcon.js",
 	"bin-debug/Game/SceneBegin.js",
 	"bin-debug/Game/SceneLevels.js",
 	"bin-debug/LoadingUI.js",
 	"bin-debug/Main.js",
 	"bin-debug/ThemeAdapter.js",
+	"bin-debug/util/ToolUtils.js",
 	//----auto game_file_list end----
 ];
 
