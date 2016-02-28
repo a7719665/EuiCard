@@ -63,15 +63,31 @@ var CardMainUI = (function (_super) {
         this.cardArr.push(dragobj);
         this.cardGroup.addChild(dragobj);
     };
-    p.dropDown = function (_data, sx, sy) {
+    p.dropDown = function (obj, sx, sy) {
+        console.log(obj);
+        //return;
+        var boo = false;
         for (var i = 0; i < this.rectArr.length; i++) {
             var rect = this.rectArr[i];
             if (rect.contains(sx, sy) == true) {
                 console.log("哪个group=" + this.groupArr[i].name);
+                var dd = this.groupArr[i];
+                console.log("obj.newdragObject" + obj.newdragObject);
+                dd.addChild(obj.newdragObject);
+                var smallx = 0 + obj.width / 2;
+                var largex = rect.width - obj.width / 2;
+                var smally = 0 + obj.height / 2;
+                var largey = rect.height - obj.height / 2;
+                obj.newdragObject.x = ToolUtils.random(smallx, largex);
+                obj.newdragObject.y = ToolUtils.random(smally, largey);
+                boo = true;
+                break;
             }
+        }
+        if (boo == false) {
+            obj.newdragObject.parent.removeChild(obj.newdragObject);
         }
     };
     return CardMainUI;
 })(eui.Component);
 egret.registerClass(CardMainUI,'CardMainUI');
-//# sourceMappingURL=CardMainUI.js.map

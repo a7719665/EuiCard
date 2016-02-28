@@ -44,7 +44,8 @@ var DragObject = (function (_super) {
     };
     p.onTouchEend = function (e) {
         this.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        CardMainUI.me.dropDown(this.data, e.stageX, e.stageY);
+        console.log("this.newdragObject" + this.newdragObject);
+        CardMainUI.me.dropDown(this, e.stageX, e.stageY);
     };
     p.onTouchBegin = function (e) {
         this.newdragObject = ToolUtils.createBitmapByName(this.imgurl);
@@ -72,6 +73,7 @@ var DragObject = (function (_super) {
         else {
             this.stop();
         }
+        console.log("this.newdragObject  move -------------" + this.newdragObject);
     };
     p.stop = function () {
         this.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
@@ -81,4 +83,3 @@ var DragObject = (function (_super) {
     return DragObject;
 })(egret.Sprite);
 egret.registerClass(DragObject,'DragObject');
-//# sourceMappingURL=DragObect.js.map

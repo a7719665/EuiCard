@@ -20,4 +20,3 @@ var WxTool = (function () {
     return WxTool;
 })();
 egret.registerClass(WxTool,'WxTool');
-//# sourceMappingURL=WxTool.js.map

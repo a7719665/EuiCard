@@ -81,13 +81,30 @@ class CardMainUI extends eui.Component{
         this.cardGroup.addChild(dragobj);
         
     }
-    public dropDown(_data:number,sx:number,sy:number):void{
+    public dropDown(obj:DragObject,sx:number,sy:number):void{
+        console.log(obj);
+        //return;
+        var boo = false;
         for(var i: number = 0;i < this.rectArr.length;i++) {
             var rect: egret.Rectangle = this.rectArr[i];
             if(rect.contains(sx,sy) == true){
                 console.log("哪个group="+this.groupArr[i].name);
+                var dd:eui.Group = this.groupArr[i];
+                console.log("obj.newdragObject" + obj.newdragObject);
+                dd.addChild(obj.newdragObject);
+               
+                var smallx :number = 0+obj.width/2;
+                var largex: number = rect.width - obj.width / 2;
+                var smally: number = 0 + obj.height / 2;
+                var largey: number = rect.height - obj.height / 2;
+                obj.newdragObject.x = ToolUtils.random(smallx,largex);
+                obj.newdragObject.y = ToolUtils.random(smally,largey);
+                boo=true;
                 break;
             }
+        }
+        if(boo == false){
+            obj.newdragObject.parent.removeChild(obj.newdragObject);
         }
     }
     
