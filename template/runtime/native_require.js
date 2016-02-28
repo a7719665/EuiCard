@@ -6,6 +6,8 @@ var game_file_list = [
 	"libs/modules/egret/egret.native.js",
 	"libs/modules/eui/eui.js",
 	"libs/modules/res/res.js",
+	"libs/modules/tween/tween.js",
+	"libs/modules/weixinapi/weixinapi.js",
 	"bin-debug/AssetAdapter.js",
 	"bin-debug/Game/CardMainUI.js",
 	"bin-debug/Game/DragObect.js",
@@ -14,8 +16,10 @@ var game_file_list = [
 	"bin-debug/Game/SceneLevels.js",
 	"bin-debug/LoadingUI.js",
 	"bin-debug/Main.js",
+	"bin-debug/SignPackage.js",
 	"bin-debug/ThemeAdapter.js",
 	"bin-debug/util/ToolUtils.js",
+	"bin-debug/WxTool.js",
 	//----auto game_file_list end----
 ];
 

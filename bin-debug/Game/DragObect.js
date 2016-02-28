@@ -46,9 +46,13 @@ var DragObject = (function (_super) {
     p.onTouchBegin = function (e) {
         this.newdragObject = ToolUtils.createBitmapByName(this.imgurl);
         this.parent.parent.addChild(this.newdragObject);
-        this.newdragObject.x = e.stageX;
-        this.newdragObject.y = e.stageY;
-        console.log("stage.x" + e.stageX + "    " + this.parent.parent.name);
+        this.parent.parent.setChildIndex(this.newdragObject, this.parent.parent.numChildren - 1);
+        this.newdragObject.x = e.stageX -
+            ((this.newdragObject.width * this.newdragObject.scaleX) / 2)
+            - (this.newdragObject.anchorOffsetX * (this.newdragObject.width * this.newdragObject.scaleX)) + this.offsetX;
+        this.newdragObject.y = e.stageY -
+            ((this.newdragObject.height * this.newdragObject.scaleY) / 2) +
+            (this.newdragObject.anchorOffsetY * (this.newdragObject.height * this.newdragObject.scaleY)) + this.offsetY;
         this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
     };
     p.onTouchMove = function (e) {
@@ -72,4 +76,3 @@ var DragObject = (function (_super) {
     return DragObject;
 })(egret.Sprite);
 egret.registerClass(DragObject,'DragObject');
-//# sourceMappingURL=DragObect.js.map

@@ -17,6 +17,13 @@
     },
     {
       "name": "res"
-    }
+    },
+    {
+      "name": "tween"
+    },
+	{
+		"name": "weixinapi",
+		"path": "../libsrc"
+	}
   ]
 }

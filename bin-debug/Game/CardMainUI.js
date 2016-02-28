@@ -54,4 +54,3 @@ var CardMainUI = (function (_super) {
     return CardMainUI;
 })(eui.Component);
 egret.registerClass(CardMainUI,'CardMainUI');
-//# sourceMappingURL=CardMainUI.js.map

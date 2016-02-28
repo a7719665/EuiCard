@@ -253,6 +253,11 @@
 					"isFolder":false,
 					"key":"user_info_png",
 					"name":"user_info_png"
+				},
+				{
+					"isFolder":false,
+					"key":"620_jpg",
+					"name":"620_jpg"
 				}
 			]
 		}

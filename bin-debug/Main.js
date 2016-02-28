@@ -93,6 +93,7 @@ var Main = (function (_super) {
         if (this.isThemeLoadEnd && this.isResourceLoadEnd) {
             this.startCreateScene();
         }
+        WxTool.testWx();
     };
     /**
      * 资源组加载出错
@@ -144,4 +145,3 @@ var Main = (function (_super) {
     return Main;
 })(eui.UILayer);
 egret.registerClass(Main,'Main');
-//# sourceMappingURL=Main.js.map

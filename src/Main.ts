@@ -95,6 +95,7 @@ class Main extends eui.UILayer {
         if(this.isThemeLoadEnd && this.isResourceLoadEnd){
             this.startCreateScene();
         }
+        WxTool.testWx();
     }
     /**
      * 资源组加载出错
