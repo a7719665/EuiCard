@@ -18,11 +18,8 @@ class SceneBegin extends eui.Component{
 	}
 	
     private beginClick(){
-        console.log("sound11111111111...");
         var sound: egret.Sound = RES.getRes("buttonclick_mp3");
-        console.log("sound..."+sound);
         var channel: egret.SoundChannel = sound.play(0,1);
-        return;
         console.log("游戏开始");
         //this.parent.addChild(SceneLevels.me);
         this.parent.addChild(CardMainUI.me);

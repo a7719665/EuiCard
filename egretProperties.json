@@ -21,6 +21,9 @@
     {
       "name": "tween"
     },
+    {
+    "name": "socket"
+	},
 	{
 		"name": "weixinapi",
 		"path": "../libsrc"

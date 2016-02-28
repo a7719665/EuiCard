@@ -138,6 +138,8 @@ class Main extends eui.UILayer {
         
         
         this.addChild(SceneBegin.me);
+        
+        SocketManager.me.startConect();
     }
 
     private onButtonClick(e: egret.TouchEvent) {

@@ -19,11 +19,8 @@ var SceneBegin = (function (_super) {
         }
     );
     p.beginClick = function () {
-        console.log("sound11111111111...");
         var sound = RES.getRes("buttonclick_mp3");
-        console.log("sound..." + sound);
         var channel = sound.play(0, 1);
-        return;
         console.log("游戏开始");
         //this.parent.addChild(SceneLevels.me);
         this.parent.addChild(CardMainUI.me);
@@ -32,3 +29,4 @@ var SceneBegin = (function (_super) {
     return SceneBegin;
 })(eui.Component);
 egret.registerClass(SceneBegin,'SceneBegin');
+//# sourceMappingURL=SceneBegin.js.map

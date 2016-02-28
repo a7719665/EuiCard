@@ -134,6 +134,7 @@ var Main = (function (_super) {
         this.addChild(button);
         button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
         this.addChild(SceneBegin.me);
+        SocketManager.me.startConect();
     };
     p.onButtonClick = function (e) {
         var panel = new eui.Panel();
@@ -145,3 +146,4 @@ var Main = (function (_super) {
     return Main;
 })(eui.UILayer);
 egret.registerClass(Main,'Main');
+//# sourceMappingURL=Main.js.map

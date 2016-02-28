@@ -21,3 +21,4 @@ var LevelIcon = (function (_super) {
     return LevelIcon;
 })(eui.Button);
 egret.registerClass(LevelIcon,'LevelIcon');
+//# sourceMappingURL=LevelIcon.js.map
