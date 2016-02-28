@@ -72,6 +72,6 @@ class SocketManager {
     }
     
     private testBack(obj:any):void{
-        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        console.log("服务器消息返回拉，type="+obj.type);
     }
 }

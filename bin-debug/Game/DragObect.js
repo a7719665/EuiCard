@@ -5,10 +5,12 @@
  */
 var DragObject = (function (_super) {
     __extends(DragObject, _super);
-    function DragObject(imgpath, _index) {
+    function DragObject(imgpath, _index, _data) {
+        if (_data === void 0) { _data = CardIndex.yiqianIndex; }
         _super.call(this);
         this.offsetX = 0;
         this.offsetY = 0;
+        this.data = _data;
         this.imgurl = imgpath;
         this.index = _index;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
@@ -42,20 +44,23 @@ var DragObject = (function (_super) {
     };
     p.onTouchEend = function (e) {
         this.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+        CardMainUI.me.dropDown(this.data, e.stageX, e.stageY);
     };
     p.onTouchBegin = function (e) {
         this.newdragObject = ToolUtils.createBitmapByName(this.imgurl);
-        this.parent.parent.addChild(this.newdragObject);
-        this.parent.parent.setChildIndex(this.newdragObject, this.parent.parent.numChildren - 1);
+        //this.parent.parent.setChildIndex(this.newdragObject,this.parent.parent.numChildren-1);
         this.newdragObject.x = e.stageX -
             ((this.newdragObject.width * this.newdragObject.scaleX) / 2)
             - (this.newdragObject.anchorOffsetX * (this.newdragObject.width * this.newdragObject.scaleX)) + this.offsetX;
         this.newdragObject.y = e.stageY -
             ((this.newdragObject.height * this.newdragObject.scaleY) / 2) +
             (this.newdragObject.anchorOffsetY * (this.newdragObject.height * this.newdragObject.scaleY)) + this.offsetY;
+        this.parent.parent.addChildAt(this.newdragObject, this.parent.parent.numChildren - 1);
         this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
     };
     p.onTouchMove = function (e) {
+        //if(this.parent.parent.contains(this.newdragObject) == false)
+        //    this.parent.parent.addChildAt(this.newdragObject,this.parent.parent.numChildren - 1);
         if (this.newdragObject) {
             this.newdragObject.x = e.stageX -
                 ((this.newdragObject.width * this.newdragObject.scaleX) / 2)

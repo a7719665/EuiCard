@@ -3,6 +3,17 @@
  * @author 
  *
  */
+class CardIndex {
+    public constructor() {
+    }
+    public static baiIndex:number=1;
+    public static shiwanIndex:number=2;
+    public static yiwanIndex: number=3;
+    public static yiqianwanIndex: number=4;
+    public static yiqianIndex: number=5;
+    public static yibaiwanIndex: number=6;
+    public static wubaiwanIndex: number=7;
+}
 class ToolUtils {
 	public constructor() {
 	}

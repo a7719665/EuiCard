@@ -2,15 +2,13 @@
 <e:Skin class="CardMainUISkin" width="1080" height="1700" xmlns:e="http://ns.egret.com/eui" xmlns:ns1="*" xmlns:w="http://ns.egret.com/wing">
 	<e:Image height="1700" width="1080" x="0" y="0" source="view_png"/>
 	<e:Label id="timeTxt" text="19" x="757" y="508" size="82" width="141" height="80" italic="true"/>
-	<e:Panel id="cardGroup" y="1325" width="1078" height="179">
-	</e:Panel>
 	<e:Image source="user_info_png" x="64" y="1488"/>
 	<e:Image source="user_head_back_png" x="208" y="1524"/>
 	<e:Image source="head_png" x="214" y="1531" width="144" height="144"/>
-	<e:Image source="number_back_png" x="428" y="1544"/>
+	<e:Image id="nameTxt" source="number_back_png" x="428" y="1544"/>
 	<e:Image source="sex_f_png" x="390" y="1540"/>
 	<e:Image source="sex_m_png" x="390" y="1540"/>
-	<e:Image source="number_back_png" x="436" y="1616"/>
+	<e:Image id="coinTxt" source="number_back_png" x="436" y="1616"/>
 	<e:Image source="icon_gold_png" x="388" y="1616"/>
 	<e:Panel x="421" y="327" width="205" height="289">
 		<e:Image source="base_back_png" x="0" y="0"/>
@@ -18,7 +16,7 @@
 		<e:Label text="1999万" x="13" y="243" size="36" width="175" textAlign="center" bold="true"/>
 	</e:Panel>
 	<e:Image source="clock_png" x="679" y="506"/>
-	<e:Image source="get_gold_btn_png" x="852" y="1624"/>
+	<e:Image id="addBtn" source="get_gold_btn_png" x="852" y="1624"/>
 	<e:Image source="step_3_png" x="409" y="636"/>
 	<e:Image source="step_4_png" x="412" y="612"/>
 	<e:Image source="MoneyPic_png" x="161" y="255" width="142" height="92"/>
@@ -31,6 +29,13 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
+	<e:Group id="cardGroup" height="200" width="1070" x="0" y="1314"/>
+	<e:Group id="rightGroup" height="442" width="352" y="636" x="728" name="rightGroup"/>
+	<e:Group id="smallLeftGroup" height="200" width="396" x="116" y="1116" name="smallLeftGroup"/>
+	<e:Group id="smallRightGroup" height="200" width="396" x="564" y="1114" name="smallRightGroup"/>
+	<e:Group id="leftGroup" height="444" width="342" x="0" y="640" name="leftGroup"/>
+	<e:Group id="middleGroup" height="354" width="276" x="394" y="722" name="middleGroup"/>
+	
 	
 
 </e:Skin>

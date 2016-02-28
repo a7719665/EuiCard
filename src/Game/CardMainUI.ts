@@ -17,11 +17,19 @@ class CardMainUI extends eui.Component{
     private timer:egret.Timer;
     private upZhuangBtn:eui.Button;
     private cardArr: DragObject[]= new Array();
-    private cardGroup:eui.Panel;
+    private groupArr: eui.Group[] = new Array();
+    private rectArr: egret.Rectangle[] = new Array();
+    private cardGroup:eui.Group;
+    
+    private leftGroup:eui.Group;
+    private rightGroup: eui.Group;
+    private middleGroup: eui.Group;
+    private smallLeftGroup: eui.Group;
+    private smallRightGroup: eui.Group;
 	public constructor() {
     	  super();
         this.skinName = "src/Game/CardMainUISkin.exml";
-        
+        this.cardGroup.layout = new eui.HorizontalLayout();
         
         this.timer = new egret.Timer(1000,50);
         //注册事件侦听器
@@ -38,6 +46,18 @@ class CardMainUI extends eui.Component{
         this.createCardObject("gold_1k_png",4);
         this.createCardObject("gold_1m_png",5);
         this.createCardObject("gold_5m_png",6);
+        
+        
+        
+        this.formRect();
+	}
+	private formRect():void{
+        this.groupArr = [this.leftGroup,this.middleGroup,this.rightGroup,this.smallLeftGroup,this.smallRightGroup];
+	    for(var i:number = 0;i<this.groupArr.length;i++){
+            var rect: egret.Rectangle = new egret.Rectangle(this.groupArr[i].x,this.groupArr[i].y,this.groupArr[i].width,this.groupArr[i].height)
+	        this.rectArr.push(rect);
+            console.log(rect.x + "  " + rect.y + "  " + rect.width + "  " +rect.height);
+        }
 	}
     private timerFunc() {
         this.timeTxt.text = (this.timer.repeatCount - this.timer.currentCount).toString();
@@ -61,6 +81,14 @@ class CardMainUI extends eui.Component{
         this.cardGroup.addChild(dragobj);
         
     }
-    
+    public dropDown(_data:number,sx:number,sy:number):void{
+        for(var i: number = 0;i < this.rectArr.length;i++) {
+            var rect: egret.Rectangle = this.rectArr[i];
+            if(rect.contains(sx,sy) == true){
+                console.log("哪个group="+this.groupArr[i].name);
+                break;
+            }
+        }
+    }
     
 }

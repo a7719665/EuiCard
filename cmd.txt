@@ -1,0 +1,9 @@
+git config --global user.name "a7719665"
+git config --global user.email "a7719665@163.com"
+
+
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/a7719665/CardPro.git
+git push -u origin master

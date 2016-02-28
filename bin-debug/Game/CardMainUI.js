@@ -8,7 +8,10 @@ var CardMainUI = (function (_super) {
     function CardMainUI() {
         _super.call(this);
         this.cardArr = new Array();
+        this.groupArr = new Array();
+        this.rectArr = new Array();
         this.skinName = "src/Game/CardMainUISkin.exml";
+        this.cardGroup.layout = new eui.HorizontalLayout();
         this.timer = new egret.Timer(1000, 50);
         //注册事件侦听器
         this.timer.addEventListener(egret.TimerEvent.TIMER, this.timerFunc, this);
@@ -23,6 +26,7 @@ var CardMainUI = (function (_super) {
         this.createCardObject("gold_1k_png", 4);
         this.createCardObject("gold_1m_png", 5);
         this.createCardObject("gold_5m_png", 6);
+        this.formRect();
     }
     var d = __define,c=CardMainUI,p=c.prototype;
     d(CardMainUI, "me"
@@ -33,6 +37,14 @@ var CardMainUI = (function (_super) {
             return CardMainUI._me;
         }
     );
+    p.formRect = function () {
+        this.groupArr = [this.leftGroup, this.middleGroup, this.rightGroup, this.smallLeftGroup, this.smallRightGroup];
+        for (var i = 0; i < this.groupArr.length; i++) {
+            var rect = new egret.Rectangle(this.groupArr[i].x, this.groupArr[i].y, this.groupArr[i].width, this.groupArr[i].height);
+            this.rectArr.push(rect);
+            console.log(rect.x + "  " + rect.y + "  " + rect.width + "  " + rect.height);
+        }
+    };
     p.timerFunc = function () {
         this.timeTxt.text = (this.timer.repeatCount - this.timer.currentCount).toString();
         //console.log("计时");
@@ -50,6 +62,14 @@ var CardMainUI = (function (_super) {
         var dragobj = new DragObject(_path, i);
         this.cardArr.push(dragobj);
         this.cardGroup.addChild(dragobj);
+    };
+    p.dropDown = function (_data, sx, sy) {
+        for (var i = 0; i < this.rectArr.length; i++) {
+            var rect = this.rectArr[i];
+            if (rect.contains(sx, sy) == true) {
+                console.log("哪个group=" + this.groupArr[i].name);
+            }
+        }
     };
     return CardMainUI;
 })(eui.Component);

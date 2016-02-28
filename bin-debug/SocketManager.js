@@ -62,7 +62,7 @@ var SocketManager = (function () {
         data.type = "getTestSessionRsp";
     };
     p.testBack = function (obj) {
-        console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        console.log("服务器消息返回拉，type=" + obj.type);
     };
     return SocketManager;
 })();

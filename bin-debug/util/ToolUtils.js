@@ -3,6 +3,20 @@
  * @author
  *
  */
+var CardIndex = (function () {
+    function CardIndex() {
+    }
+    var d = __define,c=CardIndex,p=c.prototype;
+    CardIndex.baiIndex = 1;
+    CardIndex.shiwanIndex = 2;
+    CardIndex.yiwanIndex = 3;
+    CardIndex.yiqianwanIndex = 4;
+    CardIndex.yiqianIndex = 5;
+    CardIndex.yibaiwanIndex = 6;
+    CardIndex.wubaiwanIndex = 7;
+    return CardIndex;
+})();
+egret.registerClass(CardIndex,'CardIndex');
 var ToolUtils = (function () {
     function ToolUtils() {
     }
