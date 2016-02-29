@@ -16,7 +16,7 @@ class CardMainUI extends eui.Component{
     private timeTxt:eui.Label;
     private timer:egret.Timer;
     private upZhuangBtn:eui.Button;
-    private cardArr: DragObject[]= new Array();
+    private coinArr: DragObject[]= new Array();
     private groupArr: eui.Group[] = new Array();
     private rectArr: egret.Rectangle[] = new Array();
     private cardGroup:eui.Group;
@@ -26,8 +26,14 @@ class CardMainUI extends eui.Component{
     private middleGroup: eui.Group;
     private smallLeftGroup: eui.Group;
     private smallRightGroup: eui.Group;
+    private cardShowBgImg:eui.Image;
+    private cardArr:Card[] = new Array();
+    private positionArr:egret.Point[]=new Array();
+    private sendCardIndex:number=0;
+    private tw: egret.Tween;
 	public constructor() {
     	  super();
+        //this.cardShowBgImg.visible=false;
         this.skinName = "src/Game/CardMainUISkin.exml";
         this.cardGroup.layout = new eui.HorizontalLayout();
         
@@ -47,9 +53,22 @@ class CardMainUI extends eui.Component{
         this.createCardObject("gold_1m_png",5);
         this.createCardObject("gold_5m_png",6);
         
-        
+    
         
         this.formRect();
+        this.createCardArr();
+        
+        this.positionArr = [new egret.Point(540,680),new egret.Point(180,680),new egret.Point(580,680),new egret.Point(220,680),new egret.Point(260,680),new egret.Point(620,680)];
+	}
+	private createCardArr():void{
+    	for(var i:number = 0;i<6;i++){
+            var card: Card = new Card();
+            this.addChild(card);
+            card.x = 610;
+            card.y = -200;//-card.height;
+            this.cardArr.push(card);
+    	}
+	   
 	}
 	private formRect():void{
         this.groupArr = [this.leftGroup,this.middleGroup,this.rightGroup,this.smallLeftGroup,this.smallRightGroup];
@@ -69,15 +88,39 @@ class CardMainUI extends eui.Component{
     }
     private addEventListen():void{
         this.upZhuangBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.upShangClick,this);
-        
-        this.upZhuangBtn.addEventListener(egret.TouchEvent.TOUCH_TAP,this.upShangClick,this);
     }
-    private upShangClick(evt: egret.TouchEvent): void {
-        
+    /**
+     * 申请上庄
+     */ 
+    private upShangClick(evt: egret.TouchEvent): void { 
+        this.tw = egret.Tween.get(this.cardShowBgImg);
+        this.tw.to({ y: 500 },500).call(this.ShowBgImgTweenOver,this);
+
+    }
+    private ShowBgImgTweenOver():void{
+        this.sendCard();
+    }
+
+    
+    /**
+     * 发牌
+     */ 
+    private sendCard():void{
+        this.tw = egret.Tween.get(this.cardArr[this.sendCardIndex]);
+        this.tw.to({ y: this.positionArr[this.sendCardIndex].y },500)
+            .to({ x: this.positionArr[this.sendCardIndex].x+50 },200).call(this.tweenOver,this);
+        this.sendCardIndex++;
+    }
+    
+    private tweenOver():void{
+        if(this.sendCardIndex < this.positionArr.length)
+            var intervalID = setTimeout(this.sendCard(),200);
+        else
+            this.sendCardIndex +=0; 
     }
     private createCardObject(_path:string,i:number):void{
         var dragobj: DragObject = new DragObject(_path,i);
-        this.cardArr.push(dragobj);
+        this.coinArr.push(dragobj);
         this.cardGroup.addChild(dragobj);
         
     }

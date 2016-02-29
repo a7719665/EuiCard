@@ -7,9 +7,13 @@ var CardMainUI = (function (_super) {
     __extends(CardMainUI, _super);
     function CardMainUI() {
         _super.call(this);
-        this.cardArr = new Array();
+        this.coinArr = new Array();
         this.groupArr = new Array();
         this.rectArr = new Array();
+        this.cardArr = new Array();
+        this.positionArr = new Array();
+        this.sendCardIndex = 0;
+        //this.cardShowBgImg.visible=false;
         this.skinName = "src/Game/CardMainUISkin.exml";
         this.cardGroup.layout = new eui.HorizontalLayout();
         this.timer = new egret.Timer(1000, 50);
@@ -27,6 +31,8 @@ var CardMainUI = (function (_super) {
         this.createCardObject("gold_1m_png", 5);
         this.createCardObject("gold_5m_png", 6);
         this.formRect();
+        this.createCardArr();
+        this.positionArr = [new egret.Point(540, 680), new egret.Point(180, 680), new egret.Point(580, 680), new egret.Point(220, 680), new egret.Point(260, 680), new egret.Point(620, 680)];
     }
     var d = __define,c=CardMainUI,p=c.prototype;
     d(CardMainUI, "me"
@@ -37,6 +43,15 @@ var CardMainUI = (function (_super) {
             return CardMainUI._me;
         }
     );
+    p.createCardArr = function () {
+        for (var i = 0; i < 6; i++) {
+            var card = new Card();
+            this.addChild(card);
+            card.x = 610;
+            card.y = -200; //-card.height;
+            this.cardArr.push(card);
+        }
+    };
     p.formRect = function () {
         this.groupArr = [this.leftGroup, this.middleGroup, this.rightGroup, this.smallLeftGroup, this.smallRightGroup];
         for (var i = 0; i < this.groupArr.length; i++) {
@@ -54,13 +69,35 @@ var CardMainUI = (function (_super) {
     };
     p.addEventListen = function () {
         this.upZhuangBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.upShangClick, this);
-        this.upZhuangBtn.addEventListener(egret.TouchEvent.TOUCH_TAP, this.upShangClick, this);
     };
+    /**
+     * 申请上庄
+     */
     p.upShangClick = function (evt) {
+        this.tw = egret.Tween.get(this.cardShowBgImg);
+        this.tw.to({ y: 500 }, 500).call(this.ShowBgImgTweenOver, this);
+    };
+    p.ShowBgImgTweenOver = function () {
+        this.sendCard();
+    };
+    /**
+     * 发牌
+     */
+    p.sendCard = function () {
+        this.tw = egret.Tween.get(this.cardArr[this.sendCardIndex]);
+        this.tw.to({ y: this.positionArr[this.sendCardIndex].y }, 500)
+            .to({ x: this.positionArr[this.sendCardIndex].x + 50 }, 200).call(this.tweenOver, this);
+        this.sendCardIndex++;
+    };
+    p.tweenOver = function () {
+        if (this.sendCardIndex < this.positionArr.length)
+            var intervalID = setTimeout(this.sendCard(), 200);
+        else
+            this.sendCardIndex += 0;
     };
     p.createCardObject = function (_path, i) {
         var dragobj = new DragObject(_path, i);
-        this.cardArr.push(dragobj);
+        this.coinArr.push(dragobj);
         this.cardGroup.addChild(dragobj);
     };
     p.dropDown = function (obj, sx, sy) {
@@ -91,3 +128,4 @@ var CardMainUI = (function (_super) {
     return CardMainUI;
 })(eui.Component);
 egret.registerClass(CardMainUI,'CardMainUI');
+//# sourceMappingURL=CardMainUI.js.map

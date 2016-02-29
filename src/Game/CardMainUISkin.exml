@@ -35,7 +35,5 @@
 	<e:Group id="smallRightGroup" height="200" width="396" x="564" y="1114" name="smallRightGroup"/>
 	<e:Group id="leftGroup" height="444" width="342" x="0" y="640" name="leftGroup"/>
 	<e:Group id="middleGroup" height="354" width="276" x="394" y="722" name="middleGroup"/>
-	
-	
-
+	<e:Image id="cardShowBgImg" height="632" width="682" x="197" y="-641" source="GameBG3_jpg"/>
 </e:Skin>

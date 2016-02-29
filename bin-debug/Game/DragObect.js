@@ -17,7 +17,7 @@ var DragObject = (function (_super) {
     }
     var d = __define,c=DragObject,p=c.prototype;
     p.onAddToStage = function (event) {
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+        this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
         this.dragObject = ToolUtils.createBitmapByName(this.imgurl);
         this.addChild(this.dragObject);
         this.start();
@@ -40,7 +40,7 @@ var DragObject = (function (_super) {
         //this.dragObject = _dragObject;
         this.dragObject.touchEnabled = true;
         this.dragObject.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        this.stage.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEend, this);
+        this.dragObject.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEend, this);
     };
     p.onTouchEend = function (e) {
         this.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
@@ -83,3 +83,4 @@ var DragObject = (function (_super) {
     return DragObject;
 })(egret.Sprite);
 egret.registerClass(DragObject,'DragObject');
+//# sourceMappingURL=DragObect.js.map

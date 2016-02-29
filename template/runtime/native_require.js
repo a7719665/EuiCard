@@ -10,6 +10,7 @@ var game_file_list = [
 	"libs/modules/socket/socket.js",
 	"libs/modules/weixinapi/weixinapi.js",
 	"bin-debug/AssetAdapter.js",
+	"bin-debug/Game/Card.js",
 	"bin-debug/Game/CardMainUI.js",
 	"bin-debug/Game/DragObect.js",
 	"bin-debug/Game/LevelIcon.js",
