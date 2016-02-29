@@ -108,10 +108,10 @@ var CardMainUI = (function (_super) {
                 console.log("哪个group=" + this.groupArr[i].name);
                 var dd = this.groupArr[i];
                 dd.addChild(obj.newdragObject);
-                var smallx = 0 + obj.width / 2;
-                var largex = rect.width - obj.width / 2;
-                var smally = 0 + obj.height / 2;
-                var largey = rect.height - obj.height / 2;
+                var smallx = 0;
+                var largex = rect.width - obj.width;
+                var smally = 0;
+                var largey = rect.height - obj.height;
                 obj.newdragObject.x = ToolUtils.random(smallx, largex);
                 obj.newdragObject.y = ToolUtils.random(smally, largey);
                 boo = true;
@@ -125,4 +125,3 @@ var CardMainUI = (function (_super) {
     return CardMainUI;
 })(eui.Component);
 egret.registerClass(CardMainUI,'CardMainUI');
-//# sourceMappingURL=CardMainUI.js.map

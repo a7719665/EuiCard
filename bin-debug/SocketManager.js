@@ -67,4 +67,3 @@ var SocketManager = (function () {
     return SocketManager;
 })();
 egret.registerClass(SocketManager,'SocketManager');
-//# sourceMappingURL=SocketManager.js.map

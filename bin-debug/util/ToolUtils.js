@@ -37,4 +37,3 @@ var ToolUtils = (function () {
     return ToolUtils;
 })();
 egret.registerClass(ToolUtils,'ToolUtils');
-//# sourceMappingURL=ToolUtils.js.map

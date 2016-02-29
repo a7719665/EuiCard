@@ -22,4 +22,3 @@ var Card = (function (_super) {
     return Card;
 })(egret.Sprite);
 egret.registerClass(Card,'Card');
-//# sourceMappingURL=Card.js.map

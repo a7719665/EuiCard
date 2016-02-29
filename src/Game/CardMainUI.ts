@@ -133,10 +133,10 @@ class CardMainUI extends eui.Component{
                 var dd:eui.Group = this.groupArr[i];
                 dd.addChild(obj.newdragObject);
                
-                var smallx :number = 0+obj.width/2;
-                var largex: number = rect.width - obj.width / 2;
-                var smally: number = 0 + obj.height / 2;
-                var largey: number = rect.height - obj.height / 2;
+                var smallx :number = 0;
+                var largex: number = rect.width - obj.width;
+                var smally: number = 0 ;
+                var largey: number = rect.height - obj.height ;
                 obj.newdragObject.x = ToolUtils.random(smallx,largex);
                 obj.newdragObject.y = ToolUtils.random(smally,largey);
                 boo=true;
