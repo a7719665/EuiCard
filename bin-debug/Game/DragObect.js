@@ -40,15 +40,17 @@ var DragObject = (function (_super) {
         //this.dragObject = _dragObject;
         this.dragObject.touchEnabled = true;
         this.dragObject.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onTouchBegin, this);
-        this.dragObject.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEend, this);
     };
     p.onTouchEend = function (e) {
         this.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
-        console.log("this.newdragObject" + this.newdragObject);
+        this.stage.removeEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEend, this);
         CardMainUI.me.dropDown(this, e.stageX, e.stageY);
     };
     p.onTouchBegin = function (e) {
-        this.newdragObject = ToolUtils.createBitmapByName(this.imgurl);
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_END, this.onTouchEend, this);
+        this.newdragObject = new egret.Bitmap(RES.getRes(this.imgurl));
+        //this.newdragObject = ToolUtils.createBitmapByName(this.imgurl);
         //this.parent.parent.setChildIndex(this.newdragObject,this.parent.parent.numChildren-1);
         this.newdragObject.x = e.stageX -
             ((this.newdragObject.width * this.newdragObject.scaleX) / 2)
@@ -57,7 +59,6 @@ var DragObject = (function (_super) {
             ((this.newdragObject.height * this.newdragObject.scaleY) / 2) +
             (this.newdragObject.anchorOffsetY * (this.newdragObject.height * this.newdragObject.scaleY)) + this.offsetY;
         this.parent.parent.addChildAt(this.newdragObject, this.parent.parent.numChildren - 1);
-        this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);
     };
     p.onTouchMove = function (e) {
         //if(this.parent.parent.contains(this.newdragObject) == false)
@@ -73,7 +74,6 @@ var DragObject = (function (_super) {
         else {
             this.stop();
         }
-        console.log("this.newdragObject  move -------------" + this.newdragObject);
     };
     p.stop = function () {
         this.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.onTouchMove, this);

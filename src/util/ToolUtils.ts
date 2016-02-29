@@ -28,7 +28,7 @@ class ToolUtils {
         result.texture = texture;
         return result;
     }
-    
+
     public static random(a: number,b: number): number {
         return Math.round(a + Math.random() * b);
     }

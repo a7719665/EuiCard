@@ -101,15 +101,12 @@ var CardMainUI = (function (_super) {
         this.cardGroup.addChild(dragobj);
     };
     p.dropDown = function (obj, sx, sy) {
-        console.log(obj);
-        //return;
         var boo = false;
         for (var i = 0; i < this.rectArr.length; i++) {
             var rect = this.rectArr[i];
             if (rect.contains(sx, sy) == true) {
                 console.log("哪个group=" + this.groupArr[i].name);
                 var dd = this.groupArr[i];
-                console.log("obj.newdragObject" + obj.newdragObject);
                 dd.addChild(obj.newdragObject);
                 var smallx = 0 + obj.width / 2;
                 var largex = rect.width - obj.width / 2;

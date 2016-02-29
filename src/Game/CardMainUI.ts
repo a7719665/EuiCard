@@ -125,15 +125,12 @@ class CardMainUI extends eui.Component{
         
     }
     public dropDown(obj:DragObject,sx:number,sy:number):void{
-        console.log(obj);
-        //return;
         var boo = false;
         for(var i: number = 0;i < this.rectArr.length;i++) {
             var rect: egret.Rectangle = this.rectArr[i];
             if(rect.contains(sx,sy) == true){
                 console.log("哪个group="+this.groupArr[i].name);
                 var dd:eui.Group = this.groupArr[i];
-                console.log("obj.newdragObject" + obj.newdragObject);
                 dd.addChild(obj.newdragObject);
                
                 var smallx :number = 0+obj.width/2;
