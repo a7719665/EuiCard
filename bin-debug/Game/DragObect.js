@@ -83,3 +83,4 @@ var DragObject = (function (_super) {
     return DragObject;
 })(egret.Sprite);
 egret.registerClass(DragObject,'DragObject');
+//# sourceMappingURL=DragObect.js.map

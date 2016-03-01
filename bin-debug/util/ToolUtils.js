@@ -31,9 +31,14 @@ var ToolUtils = (function () {
         result.texture = texture;
         return result;
     };
+    ToolUtils.createBTextureByName = function (name) {
+        var texture = RES.getRes(name);
+        return texture;
+    };
     ToolUtils.random = function (a, b) {
         return Math.round(a + Math.random() * b);
     };
     return ToolUtils;
 })();
 egret.registerClass(ToolUtils,'ToolUtils');
+//# sourceMappingURL=ToolUtils.js.map

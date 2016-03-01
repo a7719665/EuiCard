@@ -28,7 +28,10 @@ class ToolUtils {
         result.texture = texture;
         return result;
     }
-
+    public static createBTextureByName(name: string): egret.Texture {
+        var texture: egret.Texture = RES.getRes(name);
+        return texture;
+    }
     public static random(a: number,b: number): number {
         return Math.round(a + Math.random() * b);
     }

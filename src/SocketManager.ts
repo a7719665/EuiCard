@@ -74,4 +74,16 @@ class SocketManager {
     private testBack(obj:any):void{
         console.log("服务器消息返回拉，type="+obj.type);
     }
+    
+    public sendCard():void{
+        while(GameData.me.serverCardArr.length>0)
+            GameData.me.serverCardArr.pop();
+        for(var i:number=1;i<=6;i++){
+            var arrchild: number[] = new Array();
+            arrchild.push(i,ToolUtils.random(1,3));
+            GameData.me.serverCardArr.push(arrchild);
+        }
+        
+        CardMainUI.me.getCardBack();
+    }
 }

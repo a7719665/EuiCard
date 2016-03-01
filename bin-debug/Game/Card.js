@@ -19,6 +19,17 @@ var Card = (function (_super) {
     p.onAddToStage = function (event) {
         this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     };
+    /**
+     * 翻牌展开看
+     * @param arr
+     */
+    p.trun = function (arr) {
+        //2_2_png
+        var url = arr[0] + "_" + arr[1] + "_png";
+        this.fuBmp.texture = ToolUtils.createBTextureByName(url);
+        console.log("发的牌号======" + url);
+    };
     return Card;
 })(egret.Sprite);
 egret.registerClass(Card,'Card');
+//# sourceMappingURL=Card.js.map

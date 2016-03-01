@@ -29,9 +29,18 @@
 			</e:Skin>
 		</e:skinName>
 	</e:Button>
-	<e:Group id="cardGroup" height="200" width="1070" x="0" y="1314"/>
+	<e:Group id="cardGroup" height="200" width="1070" x="0" y="1314">
+		<e:Image id="baiCoin" source="gold_100_png" x="23" y="30"/>
+		<e:Image id="shiwanCoin" source="gold_100k_png" x="465" y="30"/>
+		<e:Image id="yiwanCoin" source="gold_10k_png" x="317" y="30"/>
+		<e:Image id="qianwanCoin" source="gold_10m_png" x="919" y="30"/>
+		<e:Image id="baiwanCoin" source="gold_1m_png" x="617" y="30"/>
+		<e:Image id="wubaiwanCoin" source="gold_5m_png" x="767" y="30"/>
+		<e:Image id="qianCoin" source="gold_1k_png" x="170" y="30"/>
+	</e:Group>
 	<e:Group id="rightGroup" height="442" width="352" y="636" x="728" name="rightGroup"/>
-	<e:Group id="smallLeftGroup" height="200" width="396" x="116" y="1116" name="smallLeftGroup"/>
+	<e:Group id="smallLeftGroup" height="200" width="396" x="116" y="1116" name="smallLeftGroup">
+	</e:Group>
 	<e:Group id="smallRightGroup" height="200" width="396" x="564" y="1114" name="smallRightGroup"/>
 	<e:Group id="leftGroup" height="444" width="342" x="0" y="640" name="leftGroup"/>
 	<e:Group id="middleGroup" height="354" width="276" x="394" y="722" name="middleGroup"/>

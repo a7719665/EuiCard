@@ -64,6 +64,17 @@ var SocketManager = (function () {
     p.testBack = function (obj) {
         console.log("服务器消息返回拉，type=" + obj.type);
     };
+    p.sendCard = function () {
+        while (GameData.me.serverCardArr.length > 0)
+            GameData.me.serverCardArr.pop();
+        for (var i = 1; i <= 6; i++) {
+            var arrchild = new Array();
+            arrchild.push(i, ToolUtils.random(1, 3));
+            GameData.me.serverCardArr.push(arrchild);
+        }
+        CardMainUI.me.getCardBack();
+    };
     return SocketManager;
 })();
 egret.registerClass(SocketManager,'SocketManager');
+//# sourceMappingURL=SocketManager.js.map
